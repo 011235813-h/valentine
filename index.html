@@ -107,12 +107,12 @@
     });
 
     // NO BUTTON HOVER (Always stays inside screen)
-    noBtn.addEventListener("mouseenter", function() {
-        hoverCount++;
+    function moveNoButton() {
+    hoverCount++;
 
-        if (hoverCount >= 4) {
-            resultDiv.style.display = "block";
-            resultDiv.innerHTML = `
+    if (hoverCount >= 4) {
+        resultDiv.style.display = "block";
+        resultDiv.innerHTML = `
     <a href="https://awesomelyluvvie.com/wp-content/uploads/2013/10/Stop.gif" target="_blank">
         <img src="https://awesomelyluvvie.com/wp-content/uploads/2013/10/Stop.gif"
              alt="You can't say no!">
@@ -131,7 +131,13 @@
 
         noBtn.style.left = randomX + "px";
         noBtn.style.top = randomY + "px";
-    });
+    }
+
+// Desktop hover
+noBtn.addEventListener("mouseenter", moveNoButton);
+// Mobile touch
+noBtn.addEventListener("touchstart", moveNoButton);
+    
 </script>
 
 </body>
